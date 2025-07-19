@@ -1,0 +1,66 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+- git init 
+- git touch c1.txt 
+- notepad c1.txt -> nhập c1, lưu và tắt 
+- git add c1.txt
+- git commit -m " Tạo file c1.txt "
+--làm c2,c3 tương tự c1
+- git branch feature 
+--làm c4,c5 tương tự c1
+- git checkout về master
+- git branch bug 
+--làm c6,c7,c8 tương tự c1
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+-> git checkout feature
+   git merge bug
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+-> git checkout feature
+   git rebase bug
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+-> xét trường hợp gộp hai nhánh: git merge gộp 2 nhánh và tạo ra một commit mới, git rebase gộp nhánh lên trên nhánh khác, xóa nhánh cũ và tạo ra nhánh mới chỉ thay đổi mã hash nhưng nội dung k đổi
+5. Phân biệt git fetch và git clone
+-> git clone: tải toàn bộ repo từ mã nguồn
+   git fetch: đồng bộ code, những cập nhật trên remote về local
+6. Phân biệt git fetch và git pull
+-> git fetch: đồng bộ dữ liệu về nhưng k gộp
+   git pull = fetch + merge
+7. Phân biệt git pull và git pull --rebase
+-> git pull = fetch + merge
+   git pull --rebase = fetch + rebase
+8. Git log dùng để làm gì
+-> dùng để hiện lich sử commit 
+9. Git status dùng để làm gì
+-> dùng để xem trạng thái các file hiện tại
+10. Git add dùng để làm gì
+-> dùng để chuyển file từ untracted sang staged( trạng thái có thể commit)
+11. Git commit dùng để làm gì
+-> dùng để tạo một lần lưu trữ
+12. Mô tả lệnh để tạo branch ở local
+-> git branch <tên nhánh>
+13. Mô tả lệnh để xóa branch ở local
+-> git branch -d hoặc -D <tên nhánh>
+14. Mô tả lệnh để xóa branch ở remote
+
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+-> nhánh trung gian là nhánh origin, tổng hơp code khi clone về 
+16. Detach HEAD là gì
+-> là HEAD k trỏ đến nhánh nào hết
+17. Phân biệt HEAD và BRANCH
+-> HEAD : Head đang ở đâu là thư mục làm việc ở đó, tức con trỏ 
+   BRANCH : Nhánh 
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+-> 
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+-> Untracted, Unmodified, Modified, Stagged
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+- Xem task thuộc version nào 
+- Branch nào đang đại diện cho version đó 
+- Git fetch về
+- Tạo branch ở local trỏ tới branch dang chứa task
+- code 
+- add 
+- commit 
+- push lên remote
+VD: Q nhận lam chưc năng sum  version todo-app-1.0 -> fetch code về xong tạo nhánh sum ơ local trỏ thẳng đến branch todo-app-1.0 -> xong code chức nangw sum -> xong add -> commit-> push lên remote ( git push origin sum:todo-app-1.0 )
+21. Git cherry-pick sử dụng để làm gì
+-> dùng để lấy commit nhánh khac

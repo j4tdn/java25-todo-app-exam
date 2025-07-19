@@ -1,0 +1,119 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+→ Các bước thực hiện
+git init
+touch c1.txt
+git add . 
+git commit -m "..."
+touch c2.txt
+git add .
+git commit -m "..."
+touch c3.txt
+git add .
+git commit -m "..."
+git checkout -b feature master
+touch c4.txt
+git add .
+git commit -m "..."
+touch c5.txt
+git add .
+git commit -m "..."
+git checkout -b bug master
+touch c6.txt
+git add .
+git commit -m "..."
+touch c7.txt
+git add .
+git commit -m "..."
+touch c8.txt
+git add .
+git commit -m "..."
+
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+→ git checkout feature
+     git merge bug
+
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+→ git checkout bug
+     git rebase feature
+
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+→ - Giống nhau
+        + Sử dụng để gộp nhánh
+        + Có kết quả sau khi gộp là giống nhau
+     - Khác nhau
+       + merge
+          . gộp nhánh tạo 1 commit
+          . luôn tạo ra commit merge
+          . xử lý conflic 1 lần
+       + rebase
+           . dùng lại commit trên nhánh khác
+           . không tạo ra commit mới 
+           . có thể fixx conflic nhiều lần
+     - Được sử dụng khi gộp 2 nhánh khác nhau hoặc sử dụngkhi push code lên remote và bị reject
+   
+5. Phân biệt git fetch và git clone
+→ - git fetch lấy những thay đổi mới nhất ở remote repo về local repo ( sau khi đã liên kết remote repo với local repo)
+     - git clone sao chép code từ remote repo về local repo( dành cho lần đầu lấy remote repo về loacl)
+
+6. Phân biệt git fetch và git pull
+→  - git fetch lấy những thay đổi mới nhất ở remote repo về local repo
+      - git pull lấy những thay đổi mới nhất từ remote repo về local repo sau đó gộp với nhánh hiện tại
+
+7. Phân biệt git pull và git pull --rebase
+→  - git pull lấy những thay đổi mới nhất từ remote repo về local repo sau đó merge với nhánh hiện tại ở local
+      - git pull --rebase lấy những thay đổi mới nhất từ remote repo về local repo sau đó rebase với nhánh hiện tại ở local
+
+8. Git log dùng để làm gì
+→ Để xem lại lịch sử commit nhánh đang trở đến và các commit cha
+
+9. Git status dùng để làm gì
+→ Để xem lại những thay đổi và trạng thái của file mà git quản lý
+
+10. Git add dùng để làm gì
+→ Để đưa những file thay đổi vào trạng thái staged để chuẩn bị commit
+
+11. Git commit dùng để làm gì
+→ Để lưu những thay đổi của các file ở trạng thái staged
+
+12. Mô tả lệnh để tạo branch ở local
+→ git branch tennhanh mahash
+
+13. Mô tả lệnh để xóa branch ở local
+→ git branch -d tennhanh
+     git branch -D tennhanh
+
+14. Mô tả lệnh để xóa branch ở remote
+→ git remote-branch -d
+
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+→ Là nhánh khi chúng ta fetch một remote repo thì những thay đổi ở đây sẽ được đưa xuống nhánh trung gian sau đó được merge vào nhánh local và khi push cũng tương tự
+
+16. Detach HEAD là gì
+→ Là trạng thái khi HEAD trở trực tiếp đến commit
+
+17. Phân biệt HEAD và BRANCH
+→ - HEAD: con trỏ tạm thời có thể di chuyển linh hoạt
+     - Branch: con trỏ cố định vào commit, trỏ đến commit mới sau mỗi commit
+
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+→ có 2 cách
+git reset --soft HEAD~n
+git reset --hard HEAD~n
+
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+→ - Untracked: các file vừa được tạo
+     - Modified:các file đã chỉnh sữa sau khi đã commit hoặc staged
+     - Unmodified: các file được commit
+     - Staged:các file sau khi add ở trạng thái staged để chuẩn bị commit
+
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+→ Các bước thực hiện: ví dụ với task 18 từ todo-app-4.0
+git fetch/clone
+git checkout -b todo-app-4.0
+touch even.txt
+git add .
+git commit -m "kiem tra so chan"
+git push origin todo-app-4.0
+
+21. Git cherry-pick sử dụng để làm gì
+→ Để copy 1 commit cụ thể từ nhánh này sang nhánh khác
