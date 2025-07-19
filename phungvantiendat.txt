@@ -94,6 +94,9 @@
    Khi xóa branch ở remote thì nếu chưa cập nhật ở local thì branch ở local vẫn sẽ tồn tại
 
 15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+--> Nhánh trung gian là nhánh liên kết giữa remote và local branch với tiền tố là origin
+    Mục đích là cầu nối để thao tác giữa remote và local
+    
 
 16. Detach HEAD là gì
 --> Là trạng thái HEAD trỏ đến commit thay vì HEAD trỏ đến branch
