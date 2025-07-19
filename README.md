@@ -1,2 +1,4 @@
-# java25-todo-app-exam
-Java25 - Todo App Exam
+# Project: java25-todo-app-exam
+
+Version: TODO-APP-4.0-SNAPSHOT
+
