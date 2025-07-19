@@ -1,0 +1,59 @@
+Câu 1: Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+-> git init 
+touch c1.txt c2.txt
+notepad c1.txt c2.txt
+git add 
+git commit  
+git checkout .....
+Câu 2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+->
+Câu 3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+->
+Câu 4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+->
+Câu 5. Phân biệt git fetch và git clone
+-> git clone: sao chép toàn bộ repo từ remote về local
+   git fetch: cũng là sao chép nhưng cập nhật thoong tin nhánh từ remote, lấy dữ lieu về
+6. Phân biệt git fetch và git pull
+-> git pull = git fetch + git merge
+   git fetch chỉ lấy dữ lieu về cập nhật lại chứ không gộp 
+7. Phân biệt git pull và git pull --rebase
+-> X
+8. Git log dùng để làm gì
+-> Hiển thị lịch sử các commit
+9. Git status dùng để làm gì
+-> Hiển thị trạng thais
+10. Git add dùng để làm gì
+-> Thêm file vào staged ( chuyển từ trạng thái untracked sang staged)
+11. Git commit dùng để làm gì
+-> sau khi add file vào thì commit chủ yếu để lưu thay đổi nội dung trong file đó vào git
+12. Mô tả lệnh để tạo branch ở local
+-> git branch ten-branch
+13. Mô tả lệnh để xóa branch ở local
+-> git branch -d ten-branch
+14. Mô tả lệnh để xóa branch ở remote
+-> git push -d <tennhanhxoa> 
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+-> là nhánh tạo ra từ nhánh ở version hoặc remote, dung để làm task mà không ảnh hưởng đến nhánh chính 
+16. Detach HEAD là gì
+-> Là 1 trạng thái mà HEAD không trỏ tới nhánh nao, mà trỏ trực tiếp vào commit cụ thể
+17. Phân biệt HEAD và BRANCH
+-> HEAD: là 1 con trỏ đặc biệt trong GIT, HEAD thường trỏ vào BRANCH
+   BRANCH : là nhánh chứa nhiều commit
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+-> X
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+-> Có 4 trạng thái : untracked, unmodified, modified, staged
+Untracked + add file => staged
+staged + commit => unmodified
+unmodified + edit file => modified
+modified + stage file => staged
+unmodified + remove file => untracked
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+-> b1: xácddidnhj đang thuộc version mấy
+b2: git fetch 
+b3: tạo nhánh mới để làm task từ nhánh version
+b4:  kiểm tra trạng thái rồi code cho chức nawng task yêu cầu 
+b5: git add,git commit, git push
+21. Git cherry-pick sử dụng để làm gì
+->
