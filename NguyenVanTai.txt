@@ -1,0 +1,91 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+->Ở nhánh master 
+touch c1.txt
+git add .
+git commit -m "Tao File 1.txt"
+touch c2.txt
+git add .
+git commit -m "Tao File 2.txt"
+touch c3.txt
+git add .
+git commit -m "Tao File 3.txt"
+
+git branch -b feature master
+touch c4.txt
+git add .
+git commit -m "Tao File 4.txt"
+touch c5.txt
+git add .
+git commit -m "Tao File 5.txt"
+
+git branch -b bug master
+touch c6.txt
+git add .
+git commit -m "Tao File 6.txt"
+touch c7.txt
+git add .
+git commit -m "Tao File 7.txt"
+touch c8.txt
+git add .
+git commit -m "Tao File 8.txt"
+
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+git checkout feature
+->git merge bug
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+git checkout bug
+->git rebase bug
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+git merge: gộp nhánh , giữ lịch sử phân nhánh,có tạo commit gộp, ít xảy ra conflict,dễ làm với ít Nhánh
+git rebase: duy chuyển commit hiện tại lên trước một commit khác, giúp lịch sử commit sạch sẽ dễ nhìn hơn
+Giống nhau: đều gây ra conflict, đều gộp giúp nhánh hiện tại cập nhật đầy đủ commit
+5. Phân biệt git fetch và git clone
+->Git fetch để đồng bộ, lấy các cập nhật mới nhất từ remote về local
+->Git clone thì sẽ lấy toàn bộ lịch sử commit , đồng thời tạo một thư mục mới trùng với tên repository
+và kết nối với repo gốc(origin)
+6. Phân biệt git fetch và git pull
+->git fetch lấy các dữ liệu mới nhất từ remote về(Đồng bộ), không thay đổi nhánh hiện tại
+->git pull là bao gồm cả git fetch + git merge: có nghĩa lấy mới nhất từ remote về(đồng bộ), sau đó thực hiện gộp(merge)
+vào nhánh HEAD đang trỏ tới(đang đứng).
+7. Phân biệt git pull và git pull --rebase
+8. Git log dùng để làm gì
+->Hiển thị danh sách các commit theo thời gian, có mã hash , tên tác giả(author),email tác giả, ngày commit,commit message
+9. Git status dùng để làm gì
+git status để xem trạng thái hiện tại của repo và cũng cho biết hiện tại mình đang ở nhánh nào
+10. Git add dùng để làm gì
+git add để đưa các thay đổi vào staging area để chuẩn bị  commit
+11. Git commit dùng để làm gì
+ghi lại, lưu các thay đổi ở trong staging area vào lịch sử git dưới dạng một commit
+12. Mô tả lệnh để tạo branch ở local
+->git checkout -b new_branch old_branch: lệnh này tạo nhánh new_branch từ nhánh old_branch và duy chuyển sang nhánh mới tạo
+->git branch New_branch:lệnh này tạo nhánh nhưng không duy chuyển sang nhánh name_branch
+13. Mô tả lệnh để xóa branch ở local
+git branch -d name_branch: xáo nếu đã merge
+git branch -D name_branch:Xóa ngay và luôn
+14. Mô tả lệnh để xóa branch ở remote
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+là nhánh tạm thời, có tính READBLE
+
+16. Detach HEAD là gì
+17. Phân biệt HEAD và BRANCH
+là trnajg thái trong git khi HEAD không trỏ tới một nhánh mà trỏ tới commit
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+->sử dụng git reset --soft HEAD~n: cái này giúp xóa commit gần con trỏ HEAD đồng thời đưa các commit vào staging area.
+ví dụ +git reset --soft HEAD~1: lùi lại 1 commit trước commit hiện tại(HEAD đang trỏ tới)
+sử dụng git reset --hard HEAD~n: cái này giúp xóa hoàn toàn mọi thay đổi , không giống như --soft nó xóa sạch file và các thay đổi ở commit đó.
+->git rebase -i HEAD~n
+ví dụ git rebase -i HEAD~2:lùi lại 2 commit tính cả commit hiện tại,
+sau đó hiện lên Vim, nhấn i để chỉnh sửa
+pick 906afef version 7
+pick 5b34c10 version 8
+ví dụ ở đây có hai commit thì muốn sửa commit version 7 thì làm như sau
+edit 906afef version 7
+pick 5b34c10 version 8
+sau đó dùng git commit --amend và điền lại message theo mong muốn 
+sau đó nhấn git rebase --continue nữa là hoàn thành,
+->sử dụng git commit --amend -m "message update".
+Lệnh này có tác dụng khi mà bạn muốn thay đổi commit mà con trỏ HEAD đang trỏ tới
+        
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+21. Git cherry-pick sử dụng để làm gì
