@@ -1,0 +1,113 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+	→ Clone project (branch mặc định là master)
+		+ git clone <url> 
+	→ Tạo và push c1.txt
+		+ touch t1.txt
+		+ git add t1.txt
+		+ git commit -m "Tạo file c1.txt"
+		+ git push -u origin master
+	→ Tạo và push c2.txt
+		+ touch t2.txt
+		+ git add t2.txt
+		+ git commit -m "Tạo file c2.txt"
+		+ git push -u origin master
+	→ Tạo và push c3.txt
+		+ touch t3.txt
+		+ git add t3.txt
+		+ git commit -m "Tạo file c3.txt"
+		+ git push -u origin master
+	→ Tạo branch feature từ master và checkout qua feature:
+		+ git branch feature master
+		+ git checkout feature
+	→ Tạo và push c4.txt từ branch feature
+		+ touch t4.txt
+		+ git add t4.txt
+		+ git commit -m "Tạo file c4.txt"
+		+ git push -u origin feature
+	→ Tạo và push c5.txt từ branch feature
+		+ touch t5.txt
+		+ git add t5.txt
+		+ git commit -m "Tạo file c5.txt"
+		+ git push -u origin feature
+	→ Tạo branch bug từ master và checkout qua bug:
+		+ git branch bug master
+		+ git checkout bug
+	→ Tạo và push c6.txt từ branch bug
+		+ touch t6.txt
+		+ git add t6.txt
+		+ git commit -m "Tạo file c6.txt"
+		+ git push -u origin bug
+	→ Tạo và push c7.txt từ branch bug
+		+ touch t7.txt
+		+ git add t7.txt
+		+ git commit -m "Tạo file c7.txt"
+		+ git push -u origin bug
+	→ Tạo và push c8.txt từ branch bug
+		+ touch t8.txt
+		+ git add t8.txt
+		+ git commit -m "Tạo file c8.txt"
+		+ git push -u origin bug
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+	→ git checkout feature
+	→ git merge bug
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+	→ git checkout bug
+	→ git rebase feature
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+	→ Giống: Dùng để combine các commits của các branch lại với nhau.
+	→ Khác: merge có thể khiến flow chẻ ra nhiều hướng từ các nhánh, rebase gộp các commits thành 1 đường thẳng.
+	→ Khi nào nên sử dụng: sử dụng rebase khi muốn format lại flow của các commits thành 1 đường thẳng.
+5. Phân biệt git fetch và git clone
+	→ git fetch: fetch các thay đổi từ remote repo về local repo.
+	→ git clone: clone remote repo về 1 folder và dùng folder đó làm local repo. 
+6. Phân biệt git fetch và git pull
+	→ git pull = git fetch + git merge 
+7. Phân biệt git pull và git pull --rebase
+	→ git pull = git fetch + git merge 
+	→ git pull = git fetch + git rebase 
+8. Git log dùng để làm gì
+	→ Để xem thông tin về các commits.
+9. Git status dùng để làm gì
+	→ Để xem status của các files trong local repo.
+10. Git add dùng để làm gì
+	→ Để add 1 hoặc nhiều file vào khu vực staging.
+11. Git commit dùng để làm gì
+	→ Để add 1 hoặc nhiều file vào khu vực dùng để push.
+12. Mô tả lệnh để tạo branch ở local
+	→ git branch <target_branch> : tạo target_branch từ branch mà HEAD đang trỏ tới
+	→ git branch <target_branch> <source_branch> : tạo target_branch từ source_branch
+	→ git checkout -b <target_branch> <source_branch> : tạo target_branch từ source_branch và checkout qua target_branch
+13. Mô tả lệnh để xóa branch ở local
+	→ git branch -d <ten_branch_muon_xoa>
+14. Mô tả lệnh để xóa branch ở remote
+	→ git push origin --delete <ten_remote>/<ten_branch_muon_xoa>
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+	→ Nhánh trung gian là nhánh thuộc remote branch.
+	→ Mục đích: Dùng để tạo 1 nhánh ở local repo dựa trên nhánh trung gian và dùng nhánh vừa tạo để push lên nhánh trung gian.
+16. Detach HEAD là gì
+	→ Detach HEAD là HEAD trỏ đến 1 commit. Rồi nếu add, commit, từ commit đó dẫn đến commit con của commit đó không thuộc BRANCH nào.
+17. Phân biệt HEAD và BRANCH
+	→ HEAD: Là 1 con trỏ để trỏ tới commit hoặc branch.
+	→ BRANCH: Là 1 con trỏ để trỏ tới 1 commit. Dẫn đến việc commit đó và các commit cha của nó đều thuộc BRANCH.
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+	→ Có 3 cách:
+		+ git reset --soft HEAD~n : đưa file về lại khu vực staging, giữ lại content đã modified.
+		+ git reset --hard HEAD~n : đưa file về lại khu vực unmodified, xóa luôn content đã modified.
+		+ git revert : xóa commit trên remote repo
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+	→ untrack: file chưa được commit lần nào.
+	→ modified: file đã bị thay đổi sau khi đã được commit.
+	→ unmodified: file không bị thay đổi sau khi đã được commit.
+	→ stage: file nằm trong khu vực staging, sẵn sàng để commit.
+	→ deleted: y như modified nhưng đại diện cho việc file đã bị xóa.
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+	→ B1: tạo 1 branch đại diện cho task đó. VD: git branch todo-app-2.0 todo-app-1.0
+	→ B2: checkout qua branch đó. VD: git checkout todo-app-2.0
+	→ B3: update version trong file README thành đang phát triền. VD: version: 2.0-SNAPSHOT
+	→ B4: commit và push file README lên nhánh làm task để thông báo rằng start việc làm task.
+	→ B5: tạo hoặc update các file source code để làm task.
+	→ B6: commit và push các file source code.
+	→ B7: khi đã bypass source code bởi QA thì xóa SNAPSHOT trong file README. VD: version: 2.0
+	→ B8: commit và push file README lên nhánh làm task để thông báo rằng start việc làm task đã done và có thể release.
+21. Git cherry-pick sử dụng để làm gì
+	→ Để pick các commits muốn gộp khi merge các branch.
