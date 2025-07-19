@@ -1,0 +1,84 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+	-git init
+	-touch c1
+		-git add 
+		-git commit
+	-touch c2
+		-git add 
+		-git commit
+
+	-touch c3
+		-git add 
+		-git commit
+	-git branch feature
+	-git checkout feature
+	-touch c4
+		-git add 
+		-git commit
+	-touch c5
+		-git add 
+		-git commit
+	-git checkout -b bug master
+	-touch c6
+		-git add 
+		-git commit
+	-touch c7
+		-git add 
+		-git commit
+	-touch c8
+		-git add 
+		-git commit
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+	-git checkout feature
+	-git merge bug
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+	-git checkout bug
+	-git rebase feature
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+	-going la: đều gộp một nhánh khác vào nhánh cần gộp
+	-khác :
+		-merge:khi push lên cần tạo một commit và theo thời gian chúng ta commit lên remote
+		-rebase:khi push chúng sẽ tạo ra các commit cần gộp như bản sao với mã hash khác nhau và gộp vào sau nhánh cần gộp.
+5. Phân biệt git fetch và git clone
+	-git clone:lấy dữ lieu trên remote về local
+	-git fetch:lấy dữ lieu trên remote về dữ lieu mà local chưa có 
+6. Phân biệt git fetch và git pull
+	-git fetch:lấy dữ lieu an toàn
+	-git pull:lấy dữ lieu nhanh nhưng dễ xung đột
+7. Phân biệt git pull và git pull --rebase
+8. Git log dùng để làm gì
+	-xem lịch sử commit
+9. Git status dùng để làm gì
+	-xem trạng thái file trong thư mục làm việc
+10. Git add dùng để làm gì
+	-dung  để đưa các trạng thái (untracked,modified,unmodified) vào stage.
+11. Git commit dùng để làm gì
+	-dung  để lưu lại những thay đổi lưu trong stage
+12. Mô tả lệnh để tạo branch ở local
+	-git branch <tên nhánh mới> <tên nhánh cũ>
+13. Mô tả lệnh để xóa branch ở local
+	-git branch -d <tên nhánh> 
+14. Mô tả lệnh để xóa branch ở remote
+	-git push -d remotebranch localbranch
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+	- là nhánh phụ được dung trong quá trình phát triển.
+	- mục đích : dễ kiểm soát ,tách biệt 
+
+16. Detach HEAD là gì
+17. Phân biệt HEAD và BRANCH
+	-head: là con trỏ có thể di chuyển bất cứ đâu
+	-branch là nhánh không thể di chuyển được và di chuyển theo commit
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+	-có 2 cách:+ git reset --hard HEAD~n
+		   + git reset --soft HEAD~n
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+	-untracked:là những file chưa được quản lí
+	-unmodified:là những file đã commit
+	-modified:la những file đã qua chỉnh sữa
+	-stage: quản lí những file đã add
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+	-xác dịnh task do thuộc version nào
+	-branch nào dại diện cho version dó
+	-ví dụ: nhận task có chức năng sum thuộc branch todo-app-1.0 của version 1.0
+21. Git cherry-pick sử dụng để làm gì
+	-có thể commit nhánh khác khi mình ở 1 nhánh khác

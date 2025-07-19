@@ -1,0 +1,89 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+	-git init
+	-touch c1.txt
+	-git add .
+	-git commit -m "Add c1"
+	-touch c2.txt
+	-git add .
+	-git commit -m "Add c2"
+	-touch c3.txt
+	-git add .
+	-git commit -m "Add c3"
+	- git branch feature master
+	- touch c4
+	-git add .
+	-git commit -m "Add c4"
+	- git checkout master
+	- git branch bug master
+	- touch c6 
+	-git add .
+	-git commit -m "Add c6"
+	-touch c7
+	-git add .
+	-git commit -m "Add c7"
+	-touch c8
+	-git add .
+	-git commit -m "Add c8"
+
+
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+	- git checkout feature
+	- git merge bug
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+	- git checkout bug
+	- git rebase feature
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+	-giống:
+		+ Đều có mụch đích dùng để gộp một nhánh khác vào nhánh hiện tại
+	-khác:
+	     .merge:
+		+ khi push lên trên repo thì merge sẽ sắp xếp các commit theo thứ tự thời gian commit
+		+ khi merge thì sẽ tự tạo branch mới
+	     .rebase:   	
+		+ khi push lên trên repo thì rebase sẽ sắp xếp các commit theo thứ tự push
+		+ khi rebase thì không tạo branch mới
+5. Phân biệt git fetch và git clone
+	-git clone là sẽ lấy toàn bộ dữ liệu trên remote về local
+	-git fetch là chỉ lấy những dữ liệu trên remote về những dữ liệu ấy ở local chưa có
+6. Phân biệt git fetch và git pull
+	
+7. Phân biệt git pull và git pull --rebase
+
+8. Git log dùng để làm gì
+	- xem lịch sử commit
+9. Git status dùng để làm gì
+	- xem trạng thái file thư mục đang làm việc
+10. Git add dùng để làm gì
+	- dùng để đưa các file từ untracked sang trạng thái staged
+11. Git commit dùng để làm gì
+	- dùng để đưa các file từ trạng thái staged sang trạng thái unmodified
+12. Mô tả lệnh để tạo branch ở local
+	- git branch branchmoi branchcu
+13. Mô tả lệnh để xóa branch ở local
+	- git branch -D tenbranch
+14. Mô tả lệnh để xóa branch ở remote
+	- git push -d remotebranch localbranch
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+	- Nhánh trung gian là nhánh được tạo ra khi liên kết local với remote, mục đích là để cho chúng ta
+          thao tác ở trên nhánh đó thay thế cho nhánh chính ở remote  	
+16. Detach HEAD là gì
+	-
+17. Phân biệt HEAD và BRANCH
+	-HEAD: Là một con trỏ có thể di chuyển được có thể trỏ đến các commit
+	-Branch: Là nhánh không thể di chuyển được và không thể trỏ đến các commit được
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+	- có 2 cách:
+		+ git reset --hard HEAD~n (Xóa commit xóa luôn nội dung)
+		+ git reset --soft HEAD~n (Xóa commit giữ nội dung)
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+	-Untracked: là những file chưa được git quản lý
+	-Unmodifile: Là những file đã được commit
+	-Modifile: Là những file đã qua chỉnh sửa
+	-Staged: Là những file đã được add
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+	- xác định task thuộc version nào
+	- branch nào đại diện cho version này tiếp tục code trên branch đó
+	Ví dụ: Mình nhận task có chức năng prime, chức năng prime thuộc branch todo-app-2.0
+		phải trỏ head qua todo-app-2.0 để làm chức năng prime
+21. Git cherry-pick sử dụng để làm gì
+	- lệnh này giúp chúng ta có thể chọn 1 commit cụ thể từ nhánh khác để sử dụng ở nhánh hiện tại

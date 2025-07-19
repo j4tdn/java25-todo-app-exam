@@ -1,0 +1,138 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+--> B1: Tạo kho chứa ở local với lệnh git init, sau đó thư mục .git sẽ được khởi tạo
+    B2: Tạo file C1.txt với lệnh vi c1.txt
+    B3: 'git add .' để add file C1.txt ở trạng thái untracked vào staged
+    B4: 'git commit -m <message>' với commit message tương ứng với tên file
+    Thực hiện tương tự đến file C3.txt
+    Lúc này sẽ tạo nhánh feature đi ra từ commit vừa tạo mới nhất là C3 ở nhánh 'master'
+    và đưa HEAD trỏ sang nhánh 'feature' ấy với lệnh như sau:
+    'git checkout -b feature' 
+    B5: Tạo file C4.txt với lệnh vi c4.txt
+    B6: 'git add .' để add file C4.txt ở trạng thái untracked vào staged
+    B7: 'git commit -m <message>' với commit message tương ứng với tên file
+    Thực hiện tương tự đến C5.txt
+    B8: git checkout master để quay lại nhánh master 
+    B9: git checkout -b bug để tạo nhánh 'bug' từ nhánh master và đưa HEAD trỏ sang nhánh 'bug'
+    B10: Tạo file C6.txt với lệnh vi c6.txt
+    B11: 'git add .' để add file C6.txt ở trạng thái untracked vào staged
+    B12: 'git commit -m <message>' với commit message tương ứng với tên file
+    Và làm tương tự như thế đến file C8.txt
+
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+--> B1: git checkout feature
+    B2: git merge bug
+
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+--> B1: git checkout bug
+    B2: git rebase feature
+
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+--> Giống: Đều dùng để gộp code lại với nhau
+    Khác:
+    - git merge:
+      + Làm working tree trở nên xấu đi
+      + Giữ nguyên lịch sử commit 
+      + Tạo commit mới khi phải gộp code ở 2 nhánh
+      + Xảy ra conflict chỉ 1 lần
+    
+    - git rebase:
+     + Đưa commit từ current branch xuống rebase branch ==> có thể xảy ra conflict nhiều lần
+     + Working tree gọn gàng hơn
+     + Lịch sử commit thay đổi
+     + Mã hashcode của commit thay đổi, message commit giữ nguyên
+     + Số commit đưa xuống sẽ không thay đổi
+
+
+5. Phân biệt git fetch và git clone
+--> git fetch dùng để xem những thay đổi từ remote branch về local branch chứ không thay đổi gì thư mục ở local
+    git clone dùng để sao chép toàn bộ mới nhất của dự án từ remote về local repository
+
+6. Phân biệt git fetch và git pull
+--> git fetch dùng để xem những thay đổi từ remote branch về local branch chứ không thay đổi gì thư mục ở local
+    git pull = git fetch + git merge thì sẽ fetch và merge toàn bộ commit từ remote về local repository và có
+    lấy những thay đổi từ remote về local => có thay đổi ở thư mục làm việc
+
+7. Phân biệt git pull và git pull --rebase
+--> Giống: Đều là sự kết hợp giữa 2 command git fetch + git merge toàn bộ commit từ remote về local repository và có
+    lấy những thay đổi từ remote về local => có thay đổi ở thư mục làm việc
+
+    Khác:
+    - git pull: Nó sẽ thêm commit merge khi sử dụng --> vì vậy sẽ thêm 1 lịch sử commit
+    - git pull --rebase: Nó sẽ  merge toàn bộ commit từ remote về local repository --> thay đổi ở thư mục làm việc 
+    và không phải thêm commit ở lịch sử commit làm xấu working tree
+
+
+8. Git log dùng để làm gì
+--> Dùng để xem lịch sử commit
+
+9. Git status dùng để làm gì
+--> Dùng để xem trạng thái của file ở local repository
+
+
+10. Git add dùng để làm gì
+--> Dùng để add các file untracked/modified vào staged
+
+11. Git commit dùng để làm gì
+--> dùng để chốt một hành động kèm với message sau khi đã thao tác với file ở local repository
+    chỉ dùng được khi trạng thái file đã ở staged 
+
+
+12. Mô tả lệnh để tạo branch ở local
+--> git checkout -b new_branch old_branch
+     => Tạo nhánh dựa trên nhánh cũ. Giả sử muốn tạo nhánh feature thì nhánh master thì hiện tại 
+        HEAD đang trỏ đến nhánh master và master trỏ đến commit mới nhất, thì sau khi gõ lệnh này
+        thì HEAD sẽ trỏ đến feature và feature sẽ trỏ đến commit mới nhất của nhánh master
+
+13. Mô tả lệnh để xóa branch ở local
+--> git branch -d|-D <branch_name>
+    Để xóa branch thì feature chẳng hạn thì phải trỏ sang branch khác và lưu ý branch 
+    không chứa commit cha của branch khác
+
+
+14. Mô tả lệnh để xóa branch ở remote
+--> git push origin --delete <branch_name>
+   Khi xóa branch ở remote thì nếu chưa cập nhật ở local thì branch ở local vẫn sẽ tồn tại
+
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+--> Nhánh trung gian là nhánh liên kết giữa remote và local branch với tiền tố là origin
+    Mục đích là cầu nối để thao tác giữa remote và local
+    
+
+16. Detach HEAD là gì
+--> Là trạng thái HEAD trỏ đến commit thay vì HEAD trỏ đến branch
+
+17. Phân biệt HEAD và BRANCH
+--> HEAD là một con trỏ đặc biệt, HEAD trỏ đến commit hoặc HEAD trỏ đến branch. Nếu HEAD trỏ tới commit nào thì sẽ hiển thị working space của mình là thư mục đó
+    BRANCH là nhánh đại diện cho version của một dự án, HEAD chỉ trỏ đến branch
+
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+--> Có 2 cách: git reset --hard HEAD~n: xóa commit và xóa luôn nội dung
+               git reset --soft HEAD~n: xóa commit và giữ nội dung
+    => Thực chất git sẽ không xóa chỉ là ẩn commit này đi và đưa HEAD trỏ đến commit mới
+Ví dụ: Tôi thực hiện chức năng div version 3.0 ở file div.txt với nội dung 'Div function 3.0'
+commit message: 'Finish Div Function'
+thì sếp Quyền yêu cầu tôi là div phải là 'd' thường ở file nên tôi phải xóa commit và nội dung đó luôn với git reset --hard
+
+còn sếp Quyền yêu cầu tôi là div phải là 'd' thường ở commit nên tôi phải xóa commit và giữ nội dung đó với git reset --soft
+
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+--> Có các trạng thái file trong git như sau:
+    untracked: là lúc bạn tạo mới 1 file hoàn toàn 
+    staged: là lúc bạn đưa những file ở trạng thái untracked/modified vào bằng git add
+    unmodified: là trạng thái file sau khi bạn đã commit 
+    modified: là trạng thái file đang ở unmodified và bạn thay đổi nó
+
+
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+--> Xem thử task mình nhận thuộc version nào
+    Vì mỗi branch đại diện cho một version thì chúng ta bắt buộc phải thực hiện tiếp trên branch đó
+Ví dụ: Tôi là Phùng Văn Tiến Đạt, tôi được giao phát triển chức năng 11 kiểm tra số chính phương tại nhánh
+todo-app-2.0
+thì tôi phải clone dự án và code ở trên nhánh todo-app-2.0 bằng 
+cách tạo branch 'git checkout -b t11-2.0 origin/todo-app-2.0'
+và thao tác chức năng kiểm tra số chính phương đó
+rồi push lên remote branch là todo-app-2.0
+
+
+21. Git cherry-pick sử dụng để làm gì
+--> Dùng để copy commit từ nhánh này bỏ qua nhánh khác

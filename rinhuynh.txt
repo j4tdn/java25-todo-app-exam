@@ -1,0 +1,61 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+	->
+	git init
+	echo "file c1" > c1.txt
+	git add c1.txt
+	git commit -m "create file c1.txt"
+
+	echo "file c2" > c2.txt
+	git add c1.txt
+	git commit -m "create file c2.txt"
+
+	echo "file c3" > c3.txt
+	git add c3.txt
+	git commit -m "create file c3.txt"
+
+	echo "file c1" > c1.txt
+	git add c1.txt
+	git commit -m "create file c1.txt"
+
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+	->git checkout feature
+	->git merge bug
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+	git checkout feature
+	git rebase bug
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+	-> giống :  dùng để ghộp các thay đổi giữa các nhánh
+	-> khác : merge : tạo ra commit mới
+	-> 			rebase: không tạo ra commit mới
+
+
+5. Phân biệt git fetch và git clone
+	-> git fetch : lấy dữ liệu mới từ remote về máy (local) nhưng không thay đổi code hiện tại trên máy
+	-> git clone : sao chép toàn bộ repo về máy
+6. Phân biệt git fetch và git pull
+7. Phân biệt git pull và git pull --rebase
+8. Git log dùng để làm gì
+	-> xem lịch sử các commit
+9. Git status dùng để làm gì
+	-> xem trọng thái các file
+10. Git add dùng để làm gì
+	-> đưa các file vào staging để commit
+11. Git commit dùng để làm gì
+	-> commit các thay đổi để tạo ra mã hash mới ( để checkout về lại trước đó nếu cần) và push lên remote
+12. Mô tả lệnh để tạo branch ở local
+	-> git branch tên-nhánh
+13. Mô tả lệnh để xóa branch ở local
+	-> git branch -d tên-nhánh
+14. Mô tả lệnh để xóa branch ở remote
+	-> git púh origin --delete tên-nhánh
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+	-> nhánh được tạo ra để làm việc sau đó push lên mà không ảnh hưởng tới nhánh chính
+16. Detach HEAD là gì
+	-> là trạng thái HEAD không trỏ tới nhánh mà trỏ trực tiếp tới commit
+17. Phân biệt HEAD và BRANCH
+	HEAD: trỏ tới commit hiện tại
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+21. Git cherry-pick sử dụng để làm gì
+	-> dùng để commit từ nhánh này sang nhánh khác
