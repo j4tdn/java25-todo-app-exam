@@ -88,4 +88,4 @@ Lệnh này có tác dụng khi mà bạn muốn thay đổi commit mà con tr�
         
 19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
 20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
-21. Git cherry-pick sử dụng để làm gì
+21. Git cherry-pick sử dụng để làm gì  ...
