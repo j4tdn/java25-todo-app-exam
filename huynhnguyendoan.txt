@@ -1,0 +1,105 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+->
+git init
+touch c1.txt
+git add c1.txt
+git commit -m "Add file c1"
+touch c2.txt
+git add c2.txt
+git commit -m "Add file c2"
+touch c3.txt
+git add c3.txt
+git commit -m "Add file c3"
+git checkout -b feature master
+touch c4.txt
+git add c4.txt
+git commit -m "Add file c4"
+touch c5.txt
+git add c5.txt
+git commit -m "Add file c5"
+git checkout -b bug master
+touch c6.txt
+git add c6.txt
+git commit -m "Add file c6"
+touch c7.txt
+git add c7.txt
+git commit -m "Add file c7"
+touch c8.txt
+git add c8.txt
+git commit -m "Add file c8"
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+->
+git checkout feature
+git merge bug
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+->
+git checkout bug
+git rebase feature
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+->
+Giống nhau: đều tìm điểm cha chung gần nhất, đều gộp commit 2 nhánh
+khác nhau : git merge: merge 2 nhánh với nhau và tạo ra 1 commit merge mới
+	    git rebase: gộp và viết lại commit thành 1 đường thẳng, số lượng commit k thay đổi
+Sử dụng merge khi cần xem lại toàn bộ lịch sử thay đổi vì rebase xóa đi lịch sử commit cũ
+sử dụng rebase khi không cần xem lại lịch sử cũ và muốn cây dự án clean hơn, k tạo thêm commit dư
+5. Phân biệt git fetch và git clone
+->
+git fetch: Cập nhật dữ liệu từ remote repo về local,ở local phải có sẵn liên kết với repo của remote mới có thể fetch về
+
+git clone: Sao chép toàn bộ dữ liệu từ remote repo về local, phải có URL của remote repo mới có thể clone về
+6. Phân biệt git fetch và git pull
+->
+git fetch: Cập nhật dữ liệu từ remote repo về local,ở local phải có sẵn liên kết với repo của remote mới có thể fetch về
+
+git pull: bao gồm cả fetch và merge, cập nhật dữ liệu từ remote repo về local và merge với local branch hiện tại
+7. Phân biệt git pull và git pull --rebase
+->
+git pull sử dụng fetch và merge
+
+git pull --rebase sử dụng fetch và rebase
+8. Git log dùng để làm gì
+->
+git log dùng để hiển thị version, mã hash của commit, người commit và thời gian commit
+9. Git status dùng để làm gì
+-> 
+git status dùng để hiển thị trạng thái của cái file dữ liệu
+10. Git add dùng để làm gì
+->
+git add dùng để đưa file từ trạng thái untrack->staged, moddifile ->staged để có thể commit
+11. Git commit dùng để làm gì
+->
+git commit dùng để đưa các file ở trạng thái staged lưu vào repository của git
+12. Mô tả lệnh để tạo branch ở local
+->
+git branch (tên nhánh mới) (tên nhánh chỉ định cần tạo nhánh)
+13. Mô tả lệnh để xóa branch ở local 
+->
+git brand -d (tên nhánh cần xóa)
+14. Mô tả lệnh để xóa branch ở remote
+git brand -d origin/(tên nhánh ở remote)
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+->
+Nhánh trung gian dùng để để thực hiện code thông qua nhánh remote bằng cách tạo nhánh trung gian ngay tại nhánh remote
+16. Detach HEAD là gì
+->
+detach HEAD là HEAD k ở trên bất kỳ nhánh nào, có thể xem đc commit và thay đổi nhưng để commit cần phải có brand
+17. Phân biệt HEAD và BRANCH
+->
+HEAD là con trỏ có thể di chuyển được bằng lệnh checkout
+BRANCH là nhánh có thể di chuyển được bằng việc tạo một commit mới và BRANCH sẽ di chuyển lên
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+-> có 2 cách để xóa commit
+git reset --hard HEAD~n : xóa commit và tất cả nội dung cập nhật và các file tạo ra ở commit đó
+git reset --soft HEAD~n : xóa commit nhưng giữ lại nội dung và và các file tạo ra ở commit đó
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+->:
+Untrack : file chưa được quản lý bởi git
+Unmoddifile: file k có sự thay đổi nào trong commit
+moddifile: file đã có thay đổi trong commit
+Staged: file đã sẵn sàng để được commit và đưa vào repo
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+-> 
+Check version của task -> kiểm tra xem branch nào đang quản lý task đó -> fetch dữ liệu về đồng bộ với với branch của dự án
+-> tạo một branch trung gian và checkout vào làm task trên branch đó -> add, commit và push lên remote repo.
+21. Git cherry-pick sử dụng để làm gì
+-> git cherry-pick sử dụng để copy một commit ở nhánh khác vào nhánh hiện tại
