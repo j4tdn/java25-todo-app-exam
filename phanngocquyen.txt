@@ -1,0 +1,23 @@
+1. Viết chương trình/lệnh mô tả các bước thực hiện sơ đồ git tree sau đây ở local repository
+--> ...
+2. Viết lệnh thực hiện gộp nhánh bug vào nhánh feature sử dụng git merge
+--> ...
+3. Viết lệnh thực hiện gộp nhánh feature vào bug sử dụng git rebase
+4. Phân biệt git merge và git rebase(giống, khác nhau, khi nào nên sử dụng)
+5. Phân biệt git fetch và git clone
+6. Phân biệt git fetch và git pull
+7. Phân biệt git pull và git pull --rebase
+8. Git log dùng để làm gì
+9. Git status dùng để làm gì
+10. Git add dùng để làm gì
+11. Git commit dùng để làm gì
+12. Mô tả lệnh để tạo branch ở local
+13. Mô tả lệnh để xóa branch ở local
+14. Mô tả lệnh để xóa branch ở remote
+15. Nhánh trung gian là gì, mục đích của nhánh trung gian
+16. Detach HEAD là gì
+17. Phân biệt HEAD và BRANCH
+18. Có mấy cách để xóa commit, mô tả và cho ví dụ
+19. Liệt kê các trạng thái của file trong git, giải thích từng trạng thái
+20. Mô tả các bước cần thực hiện khi nhận 1 task từ dự án, cho ví dụ
+21. Git cherry-pick sử dụng để làm gì
